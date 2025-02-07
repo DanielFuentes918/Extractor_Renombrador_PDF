@@ -41,7 +41,7 @@ Además, el nombre se **sanitiza** para eliminar caracteres no válidos en Windo
    ```bash
    pip install PyPDF2 pdf2image pytesseract
    
-3. **Instalar Tesseract OCR:**
+3. **Instalar Tesseract OCR:**  
    Descarga e instala Tesseract OCR para Windows.  
    Asegúrate de que la ruta de instalación (por ejemplo, `C:\Program Files\Tesseract-OCR\tesseract.exe`) esté configurada.  
    Puedes configurar la ruta de Tesseract en el script con:
@@ -49,3 +49,35 @@ Además, el nombre se **sanitiza** para eliminar caracteres no válidos en Windo
    ```python
    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
+4. **Instalar Poppler:**  
+   Descarga Poppler para Windows y extrae el contenido en una carpeta.
+   Luego, especifica la ruta a la carpeta bin en el script (o agrégala al PATH del sistema), por ejemplo:
+
+    ```python
+    poppler_path = r"C:\Users\Sistemas2\Desktop\Antecedentes _Penales_Script\poppler-24.08.0\Library\bin"
+    
+---
+
+## Uso
+
+1. **Ejecuta el script:**  
+   Ejecuta el archivo Python:
+    
+    ```bash
+    python nombre_del_script.py
+
+2. **Selecciona uno o varios PDFs:**  
+   Se abrirá una ventana (mediante tkinter) que te permitirá seleccionar múltiples archivos PDF.
+
+3. **Proceso de extracción y renombrado:**
+- El script intenta extraer el texto usando PyPDF2.
+- Si el PDF es escaneado y PyPDF2 no obtiene texto, se recurre a OCR (pdf2image + pytesseract).
+- Se buscan los campos **NOMBRES:**, **APELLIDOS:** y **DOCUMENTO DE IDENTIDAD:** mediante una expresión regular combinada.
+- Se sanitiza el nombre de archivo para eliminar caracteres no válidos.
+- Finalmente, el archivo se renombra en su mismo directorio con el formato:
+  
+   ```nginx
+   NOMBRES APELLIDOS DOCUMENTO_DE_IDENTIDAD.pdf
+
+
+   
