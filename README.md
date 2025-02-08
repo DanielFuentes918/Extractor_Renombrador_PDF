@@ -22,12 +22,11 @@ Además, el nombre se **sanitiza** para eliminar caracteres no válidos en Windo
   - **tkinter** (generalmente incluido con Python)
 
 - **Tesseract OCR:**  
-  Se debe instalar Tesseract OCR y asegurarse de que el ejecutable se encuentre en la ruta especificada o en el PATH del sistema.  
-  [Descargar Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
+  Se debe instalar Tesseract OCR y asegurarse de que el ejecutable se encuentre en la ruta especificada o en el PATH del sistema.
 
 - **Poppler:**  
-  Necesario para que `pdf2image` pueda convertir las páginas del PDF a imágenes. Puedes descargar una versión precompilada para Windows, por ejemplo, desde [poppler for Windows](https://github.com/oschwartz10612/poppler-windows/releases).  
-  Si prefieres, puedes agregar la carpeta `bin` de Poppler a la variable de entorno PATH o especificar su ruta en el script.
+  Necesario para que `pdf2image` pueda convertir las páginas del PDF a imágenes. Puedes descargar una versión precompilada para Windows.  
+  Agregar la carpeta `bin` de Poppler a la variable de entorno PATH o especificar su ruta en el script.
 
 ---
 
@@ -43,14 +42,18 @@ Además, el nombre se **sanitiza** para eliminar caracteres no válidos en Windo
    
 3. **Instalar Tesseract OCR:**  
    Descarga e instala Tesseract OCR para Windows.  
+   [Descarga Tesseract.exe](https://sourceforge.net/projects/tesseract-ocr.mirror/)
+   
    Asegúrate de que la ruta de instalación (por ejemplo, `C:\Program Files\Tesseract-OCR\tesseract.exe`) esté configurada.  
    Puedes configurar la ruta de Tesseract en el script con:
   
    ```python
    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-4. **Instalar Poppler:**  
-   Descarga Poppler para Windows y extrae el contenido en una carpeta.
+5. **Instalar Poppler:**  
+   Descarga Poppler para Windows en unarchivo .zip y extrae el contenido en una carpeta.  
+   [Descarga Poppler.zip](https://github.com/oschwartz10612/poppler-windows/releases/)
+     
    Luego, especifica la ruta a la carpeta bin en el script (o agrégala al PATH del sistema), por ejemplo:
 
     ```python
